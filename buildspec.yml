@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20  
+  build:
+    commands:
+      - echo Build started on `date`
+      - sam build
+      - echo start deploy
+      - sam package --s3-bucket $S3Bucket --output-template-file package.yaml
+artifacts:
+  type: zip
+  files:
+    - package.yaml
