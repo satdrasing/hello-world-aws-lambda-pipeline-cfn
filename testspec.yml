@@ -1,5 +1,9 @@
 version: 0.2
 
+env:
+  variables:
+    S3_BUCKET_CODE_COVERAGE: hello-code-coverage
+
 phases:
   install:
     runtime-versions:
@@ -10,3 +14,4 @@ phases:
       - cd hello-world
       - npm install
       - npm test
+      - echo code coverage bucket is $S3_BUCKET_CODE_COVERAGE
